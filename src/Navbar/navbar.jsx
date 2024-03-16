@@ -1,5 +1,5 @@
 const Navbar = ({currPage,isLoggedIn}) =>{
-    getUsersName = ()=>{
+    const getUsersName = ()=>{
         return "E"
     }
 return(
