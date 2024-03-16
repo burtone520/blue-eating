@@ -8,15 +8,24 @@
     color: #084A83;
 }
 .navbar-list li{
-    &::before {
-        transition: 300ms;
-        height: 5px;
-        content: "";
+    display: inline-block;
+    position: relative;
+   &::after {
+        content: '';
         position: absolute;
-        background-color: #031D44;
-      }
-    &:hover::before {
         width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #0087ca;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+      
+      &:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
       }
 }
 
@@ -35,5 +44,5 @@
     height: 125px;
 }
 .curr{
-    
+    font-weight: bold;
 }
