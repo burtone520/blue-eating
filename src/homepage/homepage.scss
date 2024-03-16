@@ -1,3 +1,25 @@
 body {
     background-color: #FFFFE7;
 }
+
+.main-text {
+    margin-top: 150px;
+    margin-left: 75px;
+
+    .header {
+        color: #084A83;
+        font-size: 55px;
+        font-weight: bold;
+    }
+
+    .subheader {
+        color: #539DDB;
+        font-size: 20px;
+        margin: 10px 0 10px 0;
+    }
+
+    .start{
+        background-color:#084A83;
+        color: white;
+    }
+}

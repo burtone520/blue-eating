@@ -5,8 +5,12 @@ import './homepage.scss';
 const Homepage = () => {
     return (
         <body> 
-            
-            <p>test</p>
+            <div class="main-text">
+                <div class="header">From blue zones to your home</div>
+                <div class="subheader">Eat better. Feel better.</div>
+                <button class="start">Get Started!</button>
+            </div>
+
         </body>
     )
 }
