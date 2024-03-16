@@ -7,6 +7,19 @@
     justify-content: space-evenly;
     color: #084A83;
 }
+.navbar-list li{
+    &::before {
+        transition: 300ms;
+        height: 5px;
+        content: "";
+        position: absolute;
+        background-color: #031D44;
+      }
+    &:hover::before {
+        width: 100%;
+      }
+}
+
 .active{
     font-weight: bold;
 }
@@ -20,4 +33,7 @@
 .logo{
     width: 250px;
     height: 125px;
+}
+.curr{
+    
 }

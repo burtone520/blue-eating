@@ -9,13 +9,12 @@ return(
         <img src={logo} alt="" className="logo"/>
         {isLoggedIn!=""?
         <ul className="navbar-list">
-            <li>Home</li>
-            <li>Life Style</li>
-            <li>Sign Up</li>
+            <li className={currPage=="Home"?"curr":""}>Home</li>
+            <li className={currPage=="lifeStyle"?"curr":""}>Life Style</li>
+            <li className={currPage=="signUp"?"curr":""}>Sign Up</li>
         </ul>
         :
     <ul className="navbar-list">
-        <li>Login</li>
         <li>Explore</li>
         <li>Search Recipes</li>
         <li>Create Recipe</li>
