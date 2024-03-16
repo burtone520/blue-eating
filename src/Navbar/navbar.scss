@@ -1,0 +1,23 @@
+.navbar-list{
+    list-style: none;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    width: 600px;
+    justify-content: space-evenly;
+    color: #084A83;
+}
+.active{
+    font-weight: bold;
+}
+.container-navbar{
+    list-style: none;
+    width: 90%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.logo{
+    width: 250px;
+    height: 125px;
+}

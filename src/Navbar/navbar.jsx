@@ -1,10 +1,12 @@
+import "./navbar.scss"
+import logo from "../blue eating logo.svg"
 const Navbar = ({currPage,isLoggedIn}) =>{
     const getUsersName = ()=>{
         return "E"
     }
 return(
-    <div className="container navbar">
-        <img src="" alt="" />
+    <div className="container-navbar">
+        <img src={logo} alt="" className="logo"/>
         {isLoggedIn!=""?
         <ul className="navbar-list">
             <li>Home</li>
