@@ -3,7 +3,6 @@ body {
 }
 
 .main-text {
-    margin-top: 5%;
     width: 90%;
     margin-inline: auto;
 
@@ -34,4 +33,7 @@ body {
     width: 50%;
     height: auto;
     border-radius: 10px;
+    display: flex;
+    margin-inline: auto;
+    margin-top: 3%;
 }
