@@ -4,10 +4,18 @@ import salad from "./salad.mp4"
 import { useEffect, useState } from 'react';
 import Login from '../login/login';
 import {useCookies} from "react-cookie"
+import CreateRecipe from "../create-recipe/create-recipe";
 const Homepage = () => {
     const [cookies, setCookie] = useCookies(['user'])
     const [displayLogin,setDisplayLogin] = useState(false)
     const [userSignedIn,setUserSignIn] = useState(cookies.user)
+    
+
+    const [displayToggleRecipe, setDisplayRecipe] = useState(false)
+    const toggleRecipeDisplay = () =>{
+        setDisplayRecipe(!displayToggleRecipe)
+    }
+    
     useEffect(()=>{
         setUserSignIn(cookies.user)
     },[cookies.user])
@@ -16,13 +24,19 @@ const Homepage = () => {
     }
     return (
         <body> 
+                  {
+            displayToggleRecipe == true?
+            <div className='overlay' >
+                <CreateRecipe toggleRecipeDisplay={()=>toggleRecipeDisplay()}/>
+            </div>:""
+        }       
                                    {displayLogin==true?
             <div className='overlay' >
                 <Login toggleDisplay={toggleDisplay}/>
             </div>:""
 }           
             <div className={displayLogin?"disabledContent":""}>
-            <Navbar isLoggedIn={cookies.user} currPage={"home"} toggleLogin={toggleDisplay} />
+            <Navbar isLoggedIn={cookies.user} currPage={"home"} toggleLogin={toggleDisplay} handleCreateRecipe={()=>toggleRecipeDisplay()}/>
 
             <div class="main-text">
                 <div class="header">From blue zones to your home</div>
