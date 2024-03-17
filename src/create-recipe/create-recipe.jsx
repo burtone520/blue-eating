@@ -29,18 +29,15 @@ const CreateRecipe = ({toggleRecipeDisplay}) => {
 
     return (
         <div className="signin-container"> 
-            <h2>Create New Recipe</h2>
+            <h2 class="createRecipeHeader">Create New Recipe</h2>
             <FontAwesomeIcon icon={faCircleXmark} className="closeIcon" onClick={()=>toggleRecipeDisplay()}/>
             <div className="input-box">
-                {/* <FontAwesomeIcon icon={faCircleUser} className="icon" /> */}
                 <input type="text"  value={recipeName} onChange={(e) => setRecipeName(e.target.value)} placeholder="Recipe Name" />
             </div>
             <div className="input-box">
-                {/* <FontAwesomeIcon icon={faLock} className="icon"/> */}
                 <input type="text" value={ingredients} onChange={(e) => setIngredients(e.target.value)} placeholder="Ingredients" />
             </div>
             <div className="input-box">
-                {/* <FontAwesomeIcon icon={faLock} className="icon"/> */}
                 <input type="text" value={instructions} onChange={(e) => setInstructions(e.target.value)} placeholder="Instructions" />
             </div>
            <button className="primary-btn" onClick={()=>handleCreateRecipe}>Create</button>
