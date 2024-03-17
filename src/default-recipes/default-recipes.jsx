@@ -12,6 +12,10 @@ const DefaultRecipes = () => {
             <div id="item6"></div>
             <div id="item7"></div>
             <div id="item8"></div>
+            <div id="item9"></div>
+            <div id="item10"></div>
+            <div id="item11"></div>
+            <div id="item12"></div>
         </div>
     </body>
 )}

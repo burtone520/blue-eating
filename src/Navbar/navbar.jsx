@@ -7,7 +7,7 @@ const Navbar = ({currPage,isLoggedIn}) =>{
 return(
     <div className="container-navbar">
         <img src={logo} alt="" className="logo"/>
-        {isLoggedIn === "false"?
+        {isLoggedIn == ""?
         <ul className="navbar-list">
             <li className={currPage=="Home"?"curr":""}>Home</li>
             <li className={currPage=="lifeStyle"?"curr":""}>Life Style</li>
