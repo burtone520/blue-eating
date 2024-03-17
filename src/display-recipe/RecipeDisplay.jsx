@@ -3,8 +3,22 @@ import { useParams } from "react-router-dom";
 import Navbar from "../Navbar/navbar";
 import React from "react";
 import { useEffect, useState } from 'react';
-import {useCookies} from "react-cookie"
+import {useCookies} from "react-cookie";
 const RecipeDisplay = () =>{
+    const [recipes, setRecipes] = useState([]);
+
+    useEffect(() => {
+      const fetchRecipes = async () => {
+        try {
+          const response = await axios.get('/recipes');
+          setRecipes(response.data);
+        } catch (error) {
+          console.error('Error fetching recipes:', error);
+        }
+      };
+  
+      fetchRecipes();
+    }, []);
     const [cookies, setCookie] = useCookies(['user'])
     const [displayLogin,setDisplayLogin] = useState(false)
     const [userSignedIn,setUserSignIn] = useState(cookies.user)
