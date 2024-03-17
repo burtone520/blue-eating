@@ -2,7 +2,18 @@ import "./RecipeDisplay.scss"
 import { useParams } from "react-router-dom";
 import Navbar from "../Navbar/navbar";
 import React from "react";
+import { useEffect, useState } from 'react';
+import {useCookies} from "react-cookie"
 const RecipeDisplay = () =>{
+    const [cookies, setCookie] = useCookies(['user'])
+    const [displayLogin,setDisplayLogin] = useState(false)
+    const [userSignedIn,setUserSignIn] = useState(cookies.user)
+    useEffect(()=>{
+        setUserSignIn(cookies.user)
+    },[cookies.user])
+    const toggleDisplay = () =>{
+        setDisplayLogin(!displayLogin)
+    }
     const { id } = useParams(); // Access the "id" parameter from the URL
     const randomNumber = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
     const demoRecipe ={
@@ -14,7 +25,7 @@ const RecipeDisplay = () =>{
     }
 return(
     <React.Fragment>
-        <Navbar isLoggedIn={true}/>
+        <Navbar isLoggedIn={cookies.user} currPage={"explore"} toggleLogin={toggleDisplay} />
     <div className="Container">
         <div className="Image-Container">
     <img src={demoRecipe.image} alt="" />

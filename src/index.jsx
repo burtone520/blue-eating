@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Homepage from "./homepage/homepage";
-import "../src/stuff from package default/index.css"
+import "./index.css"
 import DefaultRecipes from "./default-recipes/default-recipes";
 import RecipeDisplay from "./display-recipe/RecipeDisplay";
 const router = createBrowserRouter([

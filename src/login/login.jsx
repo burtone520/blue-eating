@@ -5,12 +5,16 @@ import logo from "../blue eating logo.svg";
 import axios from "axios";
 import { CookiesProvider, useCookies } from 'react-cookie'
 import "./login.scss"
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+
 const Login = ({toggleDisplay}) => {
     const [cookies, setCookie] = useCookies(['user'])
     const [userInitialCookies, userInitialSetCookie] = useCookies(['initial'])
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [isSignUp, setSignUp] = useState(false);
+    const navigate = useNavigate(); // Initialize useNavigate hook
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = {username:username,password:password}
@@ -18,7 +22,7 @@ const Login = ({toggleDisplay}) => {
         if(isSignUp){
 
         try {
-            const response = await axios.post('http://localhost:5231/register', formData);
+            const response = await axios.post('http://localhost:3000/register', formData);
             console.log(await response.data); // Handle the response data here
             setPassword("")
             setUsername("")
@@ -28,12 +32,13 @@ const Login = ({toggleDisplay}) => {
         }}
         else{
             try {
-                const response = await axios.post('http://localhost:5231/login', formData);
+                const response = await axios.post('http://localhost:3000/login', formData);
                 console.log(await response.data); // Handle the response data here
                 setCookie('user',await response.data.userID)
                 userInitialSetCookie("initial", await response.data.userInitial)
                 setPassword("")
                 setUsername("")
+                navigate('/'); // Example new path: '/dashboard'
                 closeDisplay()
             } catch (error) {
                 console.error('Error:', error);
