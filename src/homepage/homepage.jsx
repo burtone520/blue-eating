@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import './homepage.scss';
 import Navbar from "../Navbar/navbar";
 import salad from "./salad.mp4"
