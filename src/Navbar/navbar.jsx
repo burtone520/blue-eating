@@ -3,6 +3,7 @@ import logo from "../blue eating logo.svg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBoxesAlt, faCaretDown, faCarrot } from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router-dom";
 const Navbar = ({currPage,isLoggedIn}) =>{
 
     const getUsersName = ()=>{
@@ -13,13 +14,13 @@ return(
         <img src={logo} alt="" className="logo"/>
         {isLoggedIn === "false"?
         <ul className="navbar-list">
-            <li id={currPage=="home"?"curr":""}>Home</li>
+            <li id={currPage=="home"?"curr":""}><Link to="/">Home</Link></li>
             <li id={currPage=="lifeStyle"?"curr":""}>Life Style</li>
-            <li id={currPage=="signUp"?"curr":""}>Sign Up</li>
+            <li>Sign Up</li>
         </ul>
         :
     <ul className="navbar-list">
-        <li>Explore</li>
+        <li><Link to="recipies">Explore</Link></li>
         <li>Search Recipes</li>
         <li>Create Recipe</li>
         <li>Life Style</li>
