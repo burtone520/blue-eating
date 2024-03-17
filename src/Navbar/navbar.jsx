@@ -28,15 +28,13 @@ return(
         <ul className="navbar-list">
             <li id={currPage=="home"?"curr":""}><Link to="/" style={{ textDecoration: 'none', color:"inherit"}}>Home</Link></li>
             {/* <li id={currPage=="lifeStyle"?"curr":""}>Life Style</li> */}
-            <li >Life Style</li>
             <li onClick={()=>toggleLogin()}>Sign Up</li>
         </ul>
         :
     <ul className="navbar-list">
-        <li id={currPage=="explore"?"curr":""}><Link to="/recipies" style={{ textDecoration: 'none', color:"inherit"}}>Explore</Link></li>
-        <li><Link to="/default-recipes" style={{ textDecoration: 'none', color:"inherit"}}>Search Recipes</Link></li>
+         <li id={currPage=="explore"?"curr":""}><Link to="/" style={{ textDecoration: 'none', color:"inherit"}}>Home</Link></li>
+        <li id={currPage=="explore"?"curr":""}><Link to="/default-recipes" style={{ textDecoration: 'none', color:"inherit"}}>Explore</Link></li>
         <li onClick={()=>handleCreateRecipe()}>Create Recipe</li>
-        <li>Life Style</li>
     
         <div className="user-Dropdown">
         <p className="userIcon">{userInitialCookie.initial[0]}</p>

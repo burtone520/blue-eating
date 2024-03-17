@@ -3,7 +3,10 @@ import "./recipes.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faSearch,faCircleXmark} from "@fortawesome/free-solid-svg-icons"
 import RecipesGrid from "../recipes-grid-component/recipes-grid-component.jsx"
-const Recipes = ({ id, time, image, recipeName }) => {
+import axios from 'axios';
+import "./recipes.scss"
+import Navbar from '../Navbar/navbar';
+const Recipes = () => {
     const [isFocused, setIsFocused] = useState(false);
     const [inputValRecipe, setRecipeValue] = useState("");
     const [inputValIngredient, setIngredientValue] = useState("");
@@ -53,6 +56,8 @@ const Recipes = ({ id, time, image, recipeName }) => {
 
   return (
   <React.Fragment>
+      <Navbar isLoggedIn={false} currPage={"home"} />
+    <div style={{display:'flex'}}>
         <div class={ingredientValsDrop.length == 0 ? "ingredient-wrapper" : "dropdown-ingredient-wrapper"}>
             <div className="input">
                     <FontAwesomeIcon icon={faSearch} class="search"/>
@@ -90,7 +95,11 @@ const Recipes = ({ id, time, image, recipeName }) => {
                         onFocus={handleFocus}
                         placeholder="Filter by recipe"/>
             </div>
+          
+            </div>
+            <div>
             <RecipesGrid recipies={recipes}/>
+            </div>
    </React.Fragment>
   );
 };

@@ -11,8 +11,7 @@ const RecipesGrid = ({recipies}) => {
                 console.log(recipe)
                 return(
                     <div className="grid-item">
-                        <Recipe_Block recipeName={recipe.recipeName} image={recipe.imageOfProduct}>
-                         
+                        <Recipe_Block recipeName={recipe.recipeName} image={recipe.imageOfProduct} id = {recipe.recipeID}>
                             Minutes: {recipe.time}
                         </Recipe_Block>
                     </div>

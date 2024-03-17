@@ -38,7 +38,7 @@ const Login = ({toggleDisplay}) => {
                 userInitialSetCookie("initial", await response.data.userInitial)
                 setPassword("")
                 setUsername("")
-                navigate('/'); // Example new path: '/dashboard'
+                navigate('/default-recipes'); // Example new path: '/dashboard'
                 closeDisplay()
             } catch (error) {
                 console.error('Error:', error);

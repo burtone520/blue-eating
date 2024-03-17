@@ -46,6 +46,8 @@ const DefaultRecipes = () => {
         }       
         <Navbar isLoggedIn={false} currPage={"home"} handleCreateRecipe={()=>toggleRecipeDisplay()} toggleLogin={toggleDisplay}/>
         <div className={displayToggleRecipe?"disabledContent":""}>
+
+        </div>
         {displayToggleRecipe==false&&
         <div class="recipes-grid">
             {recipes!=undefined &&
@@ -53,7 +55,6 @@ const DefaultRecipes = () => {
 }
         </div>
 }
-        </div>
     </body>
 )}
 export default DefaultRecipes;
