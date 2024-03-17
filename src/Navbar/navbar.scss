@@ -10,6 +10,9 @@
 .navbar-list li{
     display: inline-block;
     position: relative;
+    &:hover{
+        cursor: pointer;
+    }
    &::after {
         content: '';
         position: absolute;
@@ -26,6 +29,7 @@
       &:hover::after {
         transform: scaleX(1);
         transform-origin: bottom left;
+        cursor: pointer;
       }
 }
 
@@ -46,15 +50,7 @@
 #curr{
     font-weight: bold;
     &::after {
-        content: '';
-        position: absolute;
-        width: 100%;
         transform: scaleX(1);
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: #084A83;
-        transform-origin: bottom right;
-        transition: transform 0.25s ease-out;
+        transform-origin: bottom left;
       }
 }
