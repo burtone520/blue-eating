@@ -1,17 +1,18 @@
 import Navbar from "../Navbar/navbar";
+import Recipes from "../recipe-photos/recipes";
+import recipe2 from "../recipe-photos/recipe2.jpeg";
+import "./default-recipes.scss";
+
 const DefaultRecipes = () => {
     return (
     <body>
         <Navbar isLoggedIn={false} currPage={"home"}/>
         <div class="recipes">
-            <div id="item1"></div>
-            <div id="item2"></div>
-            <div id="item3"></div>
-            <div id="item4"></div>
-            <div id="item5"></div>
-            <div id="item6"></div>
-            <div id="item7"></div>
-            <div id="item8"></div>
+            <Recipes 
+                time={20}
+                image ={recipe2}
+                recipeName="Mediterranean Chickpea Salad"
+            />
         </div>
     </body>
 )}
