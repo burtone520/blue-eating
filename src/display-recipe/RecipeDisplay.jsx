@@ -2,7 +2,7 @@ import "./RecipeDisplay.scss"
 import { useParams } from "react-router-dom";
 const RecipeDisplay = () =>{
     const { id } = useParams(); // Access the "id" parameter from the URL
-
+    const randomNumber = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
     const demoRecipe ={
         "Title":"Shrimp Scampi",
         "ingredientList":["Shimp","Scampi"],
@@ -31,7 +31,7 @@ return(
             })}
         </div>
         <div className="Recipe-Directions">
-            <h1>Directions:How to Make {recipeName}</h1>
+            <h1>Directions:How to Make {demoRecipe.Title}</h1>
             <p className="Directions-txt">
             {demoRecipe.instructions}
             </p>

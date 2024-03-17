@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Homepage from "./homepage/homepage";
 import "../src/stuff from package default/index.css"
 import DefaultRecipes from "./default-recipes/default-recipes";
-
+import RecipeDisplay from "./display-recipe/RecipeDisplay";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -13,7 +13,11 @@ const router = createBrowserRouter([
     {
       path: "default-recipes",
       element: <DefaultRecipes/>
-    }
+    },
+      {
+      path: "recipes/:id", // Define a route parameter named "id"
+      element: <RecipeDisplay />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
