@@ -31,65 +31,7 @@
 .input-container{
     display: flex;
 }
-.container{
-    display: flex;
-    width: 300px;
-}
-.ingredient-dropdown {
-    background-color: #084A83;
-    width: 100%;
-    border-radius: 10px;
-    
-    li{
-        margin-left: 10px;
-        margin-bottom: 15px;
-        padding: 5px 2px;
-        display: flex;
-        justify-content: space-between;
-        background-color:#539DDB;
-        max-width: auto;
-        width: fit-content;
-        text-overflow: ellipsis;
-        text-wrap: nowrap;
-        white-space: nowrap;
-        overflow: hidden;
-        border-radius: 999px;
-        padding: 5px 10px;
-        font-size: medium;
-        font-weight: 600;
-    }
-    p{
-        max-width: 10ch;
-        width: fit-content;
-        text-overflow: ellipsis;
-        text-wrap: nowrap;
-        white-space: nowrap;
-        overflow: hidden;
-        padding: 3px 5px;
-        margin: 0;
-        margin-left: 10px;
-        margin-right: 25px;
-    }
-    button{
-        height: auto;
-        width: auto;
-    }
-}
-.deleteIcon{
-    width: 20px;
-    height: 20px;
-    align-self: center;
 
-    & path{
-        transition: all ease-in-out 250ms;
-
-    }
-    & path:hover{
-        fill: rgba(199, 199, 199, 0.933)!important;
-    }
-  
-
-}
 .input-container-dropdown {
     position: relative;
     display: flex;
@@ -120,56 +62,7 @@
     margin-right: 50px;
 }
 
-    .input {
-        position: relative;
-        padding: 10px 5px;
-        background-color: #084A83;
-        border-radius: 12px;
-        color: #ECECEC;
-        width: 220px;
-        font-size: medium;
-  
-        input{
-            font-size: small;
-            vertical-align: middle;
-            align-self: center;
-            background-color: transparent;
-        }
-        .search{
-            width: 20px;
-            height: 20px;
-            margin-left: 12px;
-        }
-        ul{
-            padding: 0;
-            list-style: none;
-            background-color: #084A83;
-        }
-        .input-with-no-border {
-            vertical-align: text-top;
-            border: 1px solid #ccc; 
-            transition: border-color 0.3s ease; 
-          }
-          
-          .input-with-no-border.focused {
-            border: none; 
-            outline: none; 
-            box-shadow: none; 
-          }          
 
-        .input-text::placeholder {
-            font-size: 15px;
-            color: #ECECEC !important;
-            font-family: 'Roboto';
-        }
-
-        .input-text {
-            margin-left: 20px;
-            border: none;
-            background-color: #084A83;
-            color: #ECECEC !important;
-        }
-    }
     .secondary{
         display: flex;
         height: fit-content;
