@@ -6,8 +6,9 @@ import { faBoxesAlt, faCaretDown, faCarrot } from '@fortawesome/free-solid-svg-i
 import { Link } from "react-router-dom";
 import { useState } from "react"
 import { CookiesProvider, useCookies } from 'react-cookie'
-const Navbar = ({currPage,isLoggedIn,toggleLogin}) =>{
+const Navbar = ({currPage,isLoggedIn,toggleLogin, handleCreateRecipe}) =>{
     const [displayLogin,setDisplayLogin] = useState(false)
+    const [displayRecipe,setDisplayRecipe] = useState(false)
     const [cookies, setCookie,removeCookie] = useCookies(['user'])
     const [userInitialCookie, userInitialSetCookie,userInitialRemoveCookie] = useCookies(['initial'])
 
@@ -24,7 +25,8 @@ return(
         {cookies.user==undefined?
         <ul className="navbar-list">
             <li id={currPage=="home"?"curr":""}><Link to="/" style={{ textDecoration: 'none', color:"inherit"}}>Home</Link></li>
-            <li id={currPage=="lifeStyle"?"curr":""}>Life Style</li>
+            {/* <li id={currPage=="lifeStyle"?"curr":""}>Life Style</li> */}
+            <li onClick={()=>handleCreateRecipe()}>Life Style</li>
             <li onClick={()=>toggleLogin()}>Sign Up</li>
         </ul>
         :
@@ -32,7 +34,7 @@ return(
         <li><Link to="recipies" style={{ textDecoration: 'none', color:"inherit"}}>Explore</Link></li>
         <li>Search Recipes</li>
         <li>Create Recipe</li>
-        <li>Life Style</li>
+        <li><Link to="create-recipe" style={{textDecoration: 'none', color: "inherit"}}>Life Style</Link></li>
     
         <div className="user-Dropdown">
         <p className="userIcon">{userInitialCookie.initial[0]}</p>

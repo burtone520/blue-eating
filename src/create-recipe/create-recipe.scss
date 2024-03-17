@@ -1,0 +1,86 @@
+.signin-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    height: 500px;
+    width: 450px;
+    border-radius: 16px;
+
+    .closeIcon{
+        position: absolute;
+        right: 3%;
+        top: 3%;
+        width: 25px;
+        height: 25px;
+        color: #084A83;
+        transition: all ease-in-out 250ms;
+        border-radius: 100%;
+        &:hover{
+            color: #FFF;
+            background-color: #084A83;
+        }
+    }
+    .input-box{
+        height: 45px;
+        margin-inline: auto;
+        margin-top:8%;
+        margin-bottom: 8%;
+        background-color:#E4E6E7 ;
+        display: flex;
+        width: 250px;
+        justify-content: space-evenly;
+        border-radius: 8px;
+        input{
+            text-align: left;
+            width: 150px;
+            background-color: transparent;
+            border: 1px solid transparent;
+            &::placeholder{
+                color: #A2A2A2;
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+
+        .icon{
+            align-self: center;
+            color: #A2A2A2;
+        }
+    }
+}
+
+.btm-txt{
+    margin-top: 10%;
+    margin-bottom: 4%;
+    text-align: center;
+    color: #539DDB;
+}
+#secondary-btn{
+    color: #084A83;
+    background-color: transparent;
+    border: 1px solid transparent;
+    font-size: 16px;
+    font-weight: bold;
+&:hover{
+    text-decoration: underline;
+}
+}
+.primary-btn{
+    border-radius: 8px;
+    padding: 10px 40px;
+    font-size: 16px;
+    border: 1px solid transparent;
+    display: flex;
+    color: #FFF;
+    background-color: #084A83;
+    margin-inline: auto;
+    transition: all ease-in-out 250ms;
+    &:hover{
+        background-color: #FFF;
+        color: #084A83;
+        border: 2px solid #084A83;
+    }
+}
