@@ -1,4 +1,5 @@
-    const Recipe_Block = ({image,recipeName}) =>{
+import React from "react";
+const Recipe_Block = ({image,recipeName}) =>{
         const randomNumber = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
 return(
     <React.Fragment>
@@ -9,5 +10,5 @@ return(
         </div> 
         </React.Fragment>
 )
-            }
-            export default Recipe_Block
+}
+export default Recipe_Block
