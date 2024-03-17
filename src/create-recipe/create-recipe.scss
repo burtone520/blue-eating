@@ -1,4 +1,5 @@
 .signin-container {
+    overflow-y: scroll;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -7,6 +8,61 @@
     height: 500px;
     width: 450px;
     border-radius: 16px;
+
+    .createRecipeHeader {
+        margin-top: 20px;
+        text-align: center;
+        color:#084A83;
+    }
+
+    .input-box-name {
+        width: 300px !important;
+        background-color:#539DDB !important;
+
+        .input-box-name::placeholder {
+            color: #FFF !important;
+            font-size: 15px !important;
+        }
+    }
+
+    .input-box-ingredients {
+        height: 200px !important;
+        width: 300px !important;
+        box-sizing: border-box;
+
+        .ingredients-text-box {
+            width: 100%;
+            background-color:#539DDB;
+            resize: none;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .ingredients-text-box::placeholder {
+            color: white;
+            font-size: 15px;
+        }
+
+    }
+
+    .input-box-instructions {
+        height: 400px !important;
+        width: 300px !important;
+        
+        .instructions-text-box {
+            width: 100%;
+            background-color:#539DDB; 
+            resize: none;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .instructions-text-box::placeholder {
+            color: white;
+            font-size: 15px;
+        }
+        
+    }
 
     .closeIcon{
         position: absolute;
@@ -33,12 +89,14 @@
         justify-content: space-evenly;
         border-radius: 8px;
         input{
-            text-align: left;
+            text-align: center;
             width: 150px;
             background-color: transparent;
             border: 1px solid transparent;
             &::placeholder{
-                color: #A2A2A2;
+                color: #FFF;
+                text-align: center;
+                font-size: 15px;
             }
             &:focus{
                 outline: none;
@@ -70,6 +128,7 @@
 }
 .primary-btn{
     border-radius: 8px;
+    margin-bottom: 15px;
     padding: 10px 40px;
     font-size: 16px;
     border: 1px solid transparent;
