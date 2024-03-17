@@ -38,22 +38,59 @@
     width: 300px;
 }
 .ingredient-dropdown {
-    position: absolute;
-    top:100%;
     background-color: #084A83;
     width: 100%;
-    padding: 10px 5px;
     border-radius: 10px;
+    
     li{
+        margin-left: 10px;
+        margin-bottom: 15px;
+        padding: 5px 2px;
+        display: flex;
+        justify-content: space-between;
         background-color:#539DDB;
-        max-width: 10ch;
+        max-width: auto;
+        width: fit-content;
         text-overflow: ellipsis;
         text-wrap: nowrap;
         white-space: nowrap;
         overflow: hidden;
         border-radius: 999px;
         padding: 5px 10px;
+        font-size: medium;
+        font-weight: 600;
     }
+    p{
+        max-width: 10ch;
+        width: fit-content;
+        text-overflow: ellipsis;
+        text-wrap: nowrap;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 3px 5px;
+        margin: 0;
+        margin-left: 10px;
+        margin-right: 25px;
+    }
+    button{
+        height: auto;
+        width: auto;
+    }
+}
+.deleteIcon{
+    width: 20px;
+    height: 20px;
+    align-self: center;
+
+    & path{
+        transition: all ease-in-out 250ms;
+
+    }
+    & path:hover{
+        fill: rgba(199, 199, 199, 0.933)!important;
+    }
+  
+
 }
 .input-container-dropdown {
     position: relative;
@@ -67,27 +104,37 @@
 
 .input-container {
     display:flex;
-    margin-left: 90%;
-
+    margin-left: 40%;
 }
 .dropdown-ingredient-wrapper{
     background-color: #084A83;
-    width: 250px;
-    padding: 4px 10px;
     height: 100%;
+    max-width: 100%;
+    border-radius: 16px;
+    margin-right: 50px;
+
+}
+.ingredient-wrapper{
+    background-color: #084A83;
+    height: 100%;
+    max-width: 100%;
+    border-radius: 16px;
+    margin-right: 50px;
 }
 
     .input {
         position: relative;
-        display:flex;
-        margin-right: 60px;
         padding: 10px 5px;
         background-color: #084A83;
         border-radius: 12px;
         color: #ECECEC;
         width: 220px;
         font-size: medium;
+  
         input{
+            font-size: small;
+            vertical-align: middle;
+            align-self: center;
             background-color: transparent;
         }
         .search{
@@ -96,11 +143,12 @@
             margin-left: 12px;
         }
         ul{
+            padding: 0;
             list-style: none;
-            padding-left:20px;
             background-color: #084A83;
         }
         .input-with-no-border {
+            vertical-align: text-top;
             border: 1px solid #ccc; 
             transition: border-color 0.3s ease; 
           }
@@ -125,6 +173,7 @@
         }
     }
     .secondary{
+        display: flex;
         height: fit-content;
         width: auto;
     }
