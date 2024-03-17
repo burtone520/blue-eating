@@ -1,14 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./recipes.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faSearch,faCircleXmark} from "@fortawesome/free-solid-svg-icons"
-
+import RecipesGrid from "../recipes-grid-component/recipes-grid-component.jsx"
 const Recipes = ({ id, time, image, recipeName }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [inputValRecipe, setRecipeValue] = useState("");
     const [inputValIngredient, setIngredientValue] = useState("");
     const [ingredientValsDrop, setIngredientValuesDrop] = useState([]);
+    const [recipes, setRecipes] = useState([]);
 
+    useEffect(() => {
+      const fetchRecipes = async () => {
+        try {
+          const response = await axios.get('http://localhost:3000/recipes');
+          setRecipes(response.data);
+          console.log(response.data)
+        } catch (error) {
+          console.error('Error fetching recipes:', error);
+        }
+      };
+  
+      fetchRecipes();
+    }, []);
+    useEffect(()=>{
+        searchByParameter()
+    },[inputValIngredient,inputValRecipe])
+    const searchByParameter = async() =>{
+        try {
+            const response = await axios.post('http://localhost:3000/recipes/search',{recipeName:inputValRecipe, ingredients:ingredientValsDrop});
+            setRecipes(response.data);
+            console.log(response.data)
+          } catch (error) {
+            console.error('Error fetching recipes:', error);
+          }
+    }
     const handleFocus = () => {
     setIsFocused(true);
     };
@@ -60,11 +86,11 @@ const Recipes = ({ id, time, image, recipeName }) => {
                         type="text"
                         value={inputValIngredient}
                         onChange={(e)=>{setIngredientValue(e.target.value)}}
-                        // onKeyUp={handleEnterPress}
                         class={isFocused ? "input-with-no-border focused input-text placeholder" : "input-with-no-border input-text placeholder"}
                         onFocus={handleFocus}
                         placeholder="Filter by recipe"/>
             </div>
+            <RecipesGrid recipies={recipes}/>
    </React.Fragment>
   );
 };
