@@ -10,15 +10,18 @@
 .navbar-list li{
     display: inline-block;
     position: relative;
+    &:hover{
+        cursor: pointer;
+    }
    &::after {
         content: '';
         position: absolute;
         width: 100%;
         transform: scaleX(0);
         height: 2px;
-        bottom: 0;
+        bottom: -3px;
         left: 0;
-        background-color: #0087ca;
+        background-color: #084A83;
         transform-origin: bottom right;
         transition: transform 0.25s ease-out;
       }
@@ -26,6 +29,7 @@
       &:hover::after {
         transform: scaleX(1);
         transform-origin: bottom left;
+        cursor: pointer;
       }
 }
 
@@ -43,6 +47,10 @@
     width: 250px;
     height: 125px;
 }
-.curr{
+#curr{
     font-weight: bold;
+    &::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
 }

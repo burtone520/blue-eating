@@ -4,14 +4,15 @@ const Navbar = ({currPage,isLoggedIn}) =>{
     const getUsersName = ()=>{
         return "E"
     }
+    //create a 
 return(
     <div className="container-navbar">
         <img src={logo} alt="" className="logo"/>
         {isLoggedIn == ""?
         <ul className="navbar-list">
-            <li className={currPage=="Home"?"curr":""}>Home</li>
-            <li className={currPage=="lifeStyle"?"curr":""}>Life Style</li>
-            <li className={currPage=="signUp"?"curr":""}>Sign Up</li>
+            <li id={currPage=="home"?"curr":""}>Home</li>
+            <li id={currPage=="lifeStyle"?"curr":""}>Life Style</li>
+            <li id={currPage=="signUp"?"curr":""}>Sign Up</li>
         </ul>
         :
     <ul className="navbar-list">
