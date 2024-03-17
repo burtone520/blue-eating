@@ -1,9 +1,16 @@
 import React from 'react';
-import './Grid.css';
+import "./recipes-grid-component.scss";
 
-const RecipesGrid = () => {
+const RecipesGrid = ({recipies}) => {
     return (
         <div className="grid-container">
+            {recipies.length!=undefined&&recipies.map((recipe)=>{
+                return(
+                    <div className="grid-item">
+
+                    </div>
+                )
+            })}
             <div className="grid-item">1</div>
             <div className="grid-item">2</div>
             <div className="grid-item">3</div>
