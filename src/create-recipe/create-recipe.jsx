@@ -20,7 +20,7 @@ const CreateRecipe = ({toggleRecipeDisplay}) => {
         console.log(recipeName,ingredients,instructions,image)
         formData.append('imageOfProduct',image);
         formData.append('recipeName',recipeName);
-        formData.append('ingredients',["Kill Me","Please"]);
+        formData.append('ingredients',parseString(ingredients));
         formData.append('directions',instructions);
         formData.append("userID",cookies.user)
         console.log(formData)
@@ -35,6 +35,12 @@ const CreateRecipe = ({toggleRecipeDisplay}) => {
         } catch (error) {
             console.error('Error:', error);
         }
+    }
+
+    const parseString = (input) => {
+        input = ingredients;
+        const ingredientArr = input.split(',');
+        return ingredientArr;
     }
 
     const closeRecipeDisplay = () =>{

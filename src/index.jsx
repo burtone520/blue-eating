@@ -17,7 +17,7 @@ const router = createBrowserRouter([
       {
       path: "recipes/:id", // Define a route parameter named "id"
       element: <RecipeDisplay />
-  }
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
