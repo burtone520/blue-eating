@@ -3,12 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faLock, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import logo from "../blue eating logo.svg";
 import axios from "axios";
+import { CookiesProvider, useCookies } from 'react-cookie'
 import "./login.scss"
 const Login = ({toggleDisplay}) => {
+    const [cookies, setCookie] = useCookies(['user'])
+    const [userInitialCookies, userInitialSetCookie] = useCookies(['initial'])
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [isSignUp, setSignUp] = useState(false);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = {username:username,password:password}
@@ -28,6 +30,8 @@ const Login = ({toggleDisplay}) => {
             try {
                 const response = await axios.post('http://localhost:5231/login', formData);
                 console.log(await response.data); // Handle the response data here
+                setCookie('user',await response.data.userID)
+                userInitialSetCookie("initial", await response.data.userInitial)
                 setPassword("")
                 setUsername("")
                 closeDisplay()
