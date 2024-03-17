@@ -6,16 +6,18 @@ import { faBoxesAlt, faCaretDown, faCarrot } from '@fortawesome/free-solid-svg-i
 import { Link } from "react-router-dom";
 import { useState } from "react"
 import { CookiesProvider, useCookies } from 'react-cookie'
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 const Navbar = ({currPage,isLoggedIn,toggleLogin, handleCreateRecipe}) =>{
     const [displayLogin,setDisplayLogin] = useState(false)
     const [displayRecipe,setDisplayRecipe] = useState(false)
     const [cookies, setCookie,removeCookie] = useCookies(['user'])
     const [userInitialCookie, userInitialSetCookie,userInitialRemoveCookie] = useCookies(['initial'])
-
+    const navigate = useNavigate(); // Initialize useNavigate hook
     const logout = () =>{
         if (cookies.user!=undefined){
             removeCookie(['user'])
-            removeCookie(["userInitial"])
+            removeCookie(["initial"])
+            navigate('/'); // Example new path: '/dashboard'
         }
      
     }
