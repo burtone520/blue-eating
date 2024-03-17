@@ -6,8 +6,23 @@ import React from "react";
 import { useEffect, useState } from 'react';
 import {useCookies} from "react-cookie"
 import RecipesGrid from "../recipes-grid-component/recipes-grid-component";
-
+import axios from "axios";
 const DefaultRecipes = () => {
+    const [recipes, setRecipes] = useState([]);
+
+    useEffect(() => {
+      const fetchRecipes = async () => {
+        try {
+          const response = await axios.get('http://localhost:3000/recipes');
+          setRecipes(response.data);
+          console.log(response.data)
+        } catch (error) {
+          console.error('Error fetching recipes:', error);
+        }
+      };
+  
+      fetchRecipes();
+    }, []);
     const [cookies, setCookie] = useCookies(['user'])
     const [displayLogin,setDisplayLogin] = useState(false)
     const [userSignedIn,setUserSignIn] = useState(cookies.user)
@@ -33,7 +48,9 @@ const DefaultRecipes = () => {
         <div className={displayToggleRecipe?"disabledContent":""}>
         {displayToggleRecipe==false&&
         <div class="recipes-grid">
-            <RecipesGrid/>
+            {recipes!=undefined &&
+            <RecipesGrid recipies={recipes}/>
+}
         </div>
 }
         </div>

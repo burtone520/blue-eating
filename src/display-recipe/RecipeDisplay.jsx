@@ -7,18 +7,18 @@ import {useCookies} from "react-cookie";
 const RecipeDisplay = () =>{
     const [recipes, setRecipes] = useState([]);
 
-    useEffect(() => {
-      const fetchRecipes = async () => {
-        try {
-          const response = await axios.get('/recipes');
-          setRecipes(response.data);
-        } catch (error) {
-          console.error('Error fetching recipes:', error);
-        }
-      };
+    // useEffect(() => {
+    //   const fetchRecipes = async () => {
+    //     try {
+    //       const response = await axios.get('/recipes');
+    //       setRecipes(response.data);
+    //     } catch (error) {
+    //       console.error('Error fetching recipes:', error);
+    //     }
+    //   };
   
-      fetchRecipes();
-    }, []);
+    //   fetchRecipes();
+    // }, []);
     const [cookies, setCookie] = useCookies(['user'])
     const [displayLogin,setDisplayLogin] = useState(false)
     const [userSignedIn,setUserSignIn] = useState(cookies.user)
