@@ -1,10 +1,16 @@
 import './homepage.scss';
 import Navbar from "../Navbar/navbar";
 import salad from "./salad.mp4"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Login from '../login/login';
+import {useCookies} from "react-cookie"
 const Homepage = () => {
+    const [cookies, setCookie] = useCookies(['user'])
     const [displayLogin,setDisplayLogin] = useState(false)
+    const [userSignedIn,setUserSignIn] = useState(cookies.user)
+    useEffect(()=>{
+        setUserSignIn(cookies.user)
+    },[cookies.user])
     const toggleDisplay = () =>{
         setDisplayLogin(!displayLogin)
     }
@@ -16,7 +22,7 @@ const Homepage = () => {
             </div>:""
 }           
             <div className={displayLogin?"disabledContent":""}>
-            <Navbar isLoggedIn={true} currPage={"home"} toggleLogin={toggleDisplay} />
+            <Navbar isLoggedIn={cookies.user} currPage={"home"} toggleLogin={toggleDisplay} />
 
             <div class="main-text">
                 <div class="header">From blue zones to your home</div>
