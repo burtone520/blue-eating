@@ -26,14 +26,14 @@ return(
         <ul className="navbar-list">
             <li id={currPage=="home"?"curr":""}><Link to="/" style={{ textDecoration: 'none', color:"inherit"}}>Home</Link></li>
             {/* <li id={currPage=="lifeStyle"?"curr":""}>Life Style</li> */}
-            <li onClick={()=>handleCreateRecipe()}>Life Style</li>
+            <li >Life Style</li>
             <li onClick={()=>toggleLogin()}>Sign Up</li>
         </ul>
         :
     <ul className="navbar-list">
         <li><Link to="recipies" style={{ textDecoration: 'none', color:"inherit"}}>Explore</Link></li>
         <li>Search Recipes</li>
-        <li>Create Recipe</li>
+        <li onClick={()=>handleCreateRecipe()}>Create Recipe</li>
         <li><Link to="create-recipe" style={{textDecoration: 'none', color: "inherit"}}>Life Style</Link></li>
     
         <div className="user-Dropdown">

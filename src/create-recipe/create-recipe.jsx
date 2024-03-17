@@ -4,7 +4,9 @@ import { faCircleUser, faLock, faCircleXmark } from '@fortawesome/free-solid-svg
 import axios from "axios";
 import "../login/login.scss"
 import "./create-recipe.scss"
+import { CookiesProvider, useCookies } from 'react-cookie'
 const CreateRecipe = ({toggleRecipeDisplay}) => {
+    const [cookies, setCookie,removeCookie] = useCookies(['user'])
     const [recipeName, setRecipeName] = useState("");
     const [ingredients, setIngredients] = useState("");
     const [instructions, setInstructions] = useState("");
@@ -12,13 +14,20 @@ const CreateRecipe = ({toggleRecipeDisplay}) => {
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
     };
+    
     const handleCreateRecipe = async (e) => {
-        e.preventDefault();
-        const formData = {recipeName:recipeName, ingredients:ingredients, instructions:instructions}
+        const formData = new FormData();
+        console.log(recipeName,ingredients,instructions,image)
+        formData.append('imageOfProduct',image);
+        formData.append('recipeName',recipeName);
+        formData.append('ingredients',["Kill Me","Please"]);
+        formData.append('directions',instructions);
+        formData.append("userID",cookies.user)
         console.log(formData)
 
         try {
-            const response = await axios.post('http://localhost:5231/login', formData);
+            const response = await axios.post('http://localhost:3000/recipe', formData);
+            console.log('Recipe created successfully:', await response.data);
             setRecipeName("")
             setIngredients("")
             setInstructions("")
@@ -48,7 +57,7 @@ const CreateRecipe = ({toggleRecipeDisplay}) => {
             <div className="input-box">
                 <input type="file" id="imageInput" accept="image/" onChange={handleImageChange}></input>
             </div>
-           <button className="primary-btn" onClick={()=>handleCreateRecipe}>Create</button>
+           <button className="primary-btn" onClick={handleCreateRecipe}>Create</button>
         </div>
     );
 };
