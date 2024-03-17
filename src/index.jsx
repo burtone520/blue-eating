@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Homepage from "./homepage/homepage";
-import Login from "./login/login";
 import "../src/stuff from package default/index.css"
 import DefaultRecipes from "./default-recipes/default-recipes";
 
@@ -12,7 +11,7 @@ const router = createBrowserRouter([
         element: <Homepage/>
     },
     {
-      path: "/default-recipes",
+      path: "default-recipes",
       element: <DefaultRecipes/>
     }
 ]);
