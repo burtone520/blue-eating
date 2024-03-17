@@ -31,18 +31,17 @@ return(
         </ul>
         :
     <ul className="navbar-list">
-        <li><Link to="recipies" style={{ textDecoration: 'none', color:"inherit"}}>Explore</Link></li>
-        <li>Search Recipes</li>
+        <li id={currPage=="explore"?"curr":""}><Link to="/recipies" style={{ textDecoration: 'none', color:"inherit"}}>Explore</Link></li>
+        <li><Link to="/default-recipes" style={{ textDecoration: 'none', color:"inherit"}}>Search Recipes</Link></li>
         <li onClick={()=>handleCreateRecipe()}>Create Recipe</li>
-        <li><Link to="create-recipe" style={{textDecoration: 'none', color: "inherit"}}>Life Style</Link></li>
+        <li>Life Style</li>
     
         <div className="user-Dropdown">
         <p className="userIcon">{userInitialCookie.initial[0]}</p>
         <FontAwesomeIcon icon={faCaretDown} className="carretIcon" />
         <ul>
-            <li>Saved Recipes</li>
             <li>Created Recipes</li>
-            <li onClick={logout}>Sign Out</li>
+            <li onClick={logout} >Sign Out</li>
         </ul>
   
         </div>
