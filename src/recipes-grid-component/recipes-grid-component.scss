@@ -1,4 +1,6 @@
 .grid-container {
+  width: 90%;
+  margin-inline:  auto;
     display: grid;
     grid-template-columns: repeat(4, 200px);
     grid-template-rows: repeat(3, 200px);
@@ -6,6 +8,7 @@
   }
   
   .grid-item {
+    border-radius: 16px;
     width: 200px; 
     height: 200px; 
     background-color: #ddd;
