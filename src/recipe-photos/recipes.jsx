@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import "./recipes.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faSearch} from "@fortawesome/free-solid-svg-icons"
+import {faSearch,faCircleXmark} from "@fortawesome/free-solid-svg-icons"
+
 const Recipes = ({ id, time, image, recipeName }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [inputValRecipe, setRecipeValue] = useState("");
-    const [recipeValsDrop, setRecipeValuesDrop] = useState([]);
     const [inputValIngredient, setIngredientValue] = useState("");
     const [ingredientValsDrop, setIngredientValuesDrop] = useState([]);
 
@@ -16,8 +16,9 @@ const Recipes = ({ id, time, image, recipeName }) => {
     const handleEnterPress = (e) => {
     if (e.key === 'Enter') {
         setIngredientValuesDrop(prevIngValues => [...prevIngValues, e.target.value]);
-        setIngredientValue('');
+        setRecipeValue("");
         }
+        
     };
 
     const handleDelete = (valueToDelete) => {
@@ -36,15 +37,17 @@ const Recipes = ({ id, time, image, recipeName }) => {
                         onKeyUp={(e)=>{handleEnterPress(e)}}
                         class={isFocused ? "input-with-no-border focused input-text placeholder" : "input-with-no-border input-text placeholder"}
                         onFocus={handleFocus}
-                        placeholder="Filter by recipe"/>
+                        placeholder="Filter by ingredients"/>
                    { ingredientValsDrop.length!=0&&<div class="ingredient-dropdown">
                         <ul>
                             {ingredientValsDrop.map((value, index) => {
                                 console.log(value)
                                 return(
                             <li key={index}>
+                                <p>
                                 {value}
-                                <button onClick={() => handleDelete(value)}>Delete</button>
+                                </p>
+                                <FontAwesomeIcon icon={faCircleXmark} class="deleteIcon" onClick={()=>handleDelete(value)}/>
                             </li>)})}
                         </ul>
                      </div>}
@@ -60,7 +63,7 @@ const Recipes = ({ id, time, image, recipeName }) => {
                         // onKeyUp={handleEnterPress}
                         class={isFocused ? "input-with-no-border focused input-text placeholder" : "input-with-no-border input-text placeholder"}
                         onFocus={handleFocus}
-                        placeholder="Filter by ingredients"/>
+                        placeholder="Filter by recipe"/>
             </div>
 
         {/* <img class="recipes" src={image} alt={recipeName} />
